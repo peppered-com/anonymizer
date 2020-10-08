@@ -21,7 +21,8 @@ Dir[APP_DIR + '/helper/*.rb'].each { |file| require file }
 
 env = ENV['RUBY_ENV'] || 'development'
 
-CONFIG = YAML.load_file("config/env/#{env}.yml")
+configPath = ENV['CONFIG_PATH'] || "config/env/#{env}.yml"
+CONFIG = YAML.load_file(configPath)
 
 Dir.mkdir(LOG_DIR) unless File.exist?(LOG_DIR)
 Dir.mkdir(CONFIG['tmp_path']) unless File.exist?(CONFIG['tmp_path'])
