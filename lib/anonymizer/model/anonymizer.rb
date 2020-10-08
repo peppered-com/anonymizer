@@ -87,7 +87,8 @@ class Anonymizer
   end
 
   def projects_dir
-    @projects_dir ||= File.dirname(File.expand_path('..', root_dir)) + '/config/project'
+    configPath = ENV['CONFIG_PATH'] || File.dirname(File.expand_path('..', root_dir)) + '/config/'
+    @projects_dir ||= configPath + 'project'
   end
 
   def basic_projects_dir

@@ -160,7 +160,8 @@ end
 namespace 'config' do
   desc 'Validate all projects configuration file'
   task :validate_all_projects do |_t|
-    projects = Dir[ROOT_DIR + '/config/project/*']
+    configPath = ENV['CONFIG_PATH'] || ROOT_DIR + '/config/'
+    projects = Dir[configPath + 'project/*']
 
     projects.each do |file|
       filename = File.basename file
