@@ -4,3 +4,4 @@ coverage
 web/data/*
 
 log/*.log
+.idea

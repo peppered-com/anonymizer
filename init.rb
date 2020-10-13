@@ -10,7 +10,7 @@ require 'shellwords'
 
 # Root directory
 ROOT_DIR = File.dirname File.expand_path __FILE__
-LOG_DIR = ROOT_DIR + '/log'
+LOG_DIR = ENV['LOG_PATH'] || (ROOT_DIR + '/log')
 APP_DIR = ROOT_DIR + '/lib/anonymizer'
 
 # Load models
