@@ -54,6 +54,7 @@ class Database
        @config['custom_queries']['before'].is_a?(Array)
 
       @config['custom_queries']['before'].each do |query|
+        puts query
         @db.run query
       end
     end
