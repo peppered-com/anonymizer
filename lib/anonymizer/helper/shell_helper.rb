@@ -27,7 +27,7 @@ module ShellHelper
 
   def self.dump_database(project_name, database, tmp_dir)
     random_string = "_#{database[:random_string]}" if database[:random_string]
-    command = "mysqldump#{mysql_options(database)} #{project_name} | " \
+    command = "mysqldump#{mysql_options(database)} -R #{project_name} | " \
       'grep -av "SQL SECURITY DEFINER" | sed -e \'s/DEFINER[ ]*=[ ]*[^*]*\*/\*/\' | ' \
       "gzip > #{tmp_dir}/#{project_name}#{random_string}.sql.gz"
 
